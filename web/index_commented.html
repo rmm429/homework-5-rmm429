@@ -1,0 +1,129 @@
+<html>
+    <head>
+
+        <title>SE320 Homework 5 Test UI</title>
+
+        <script>
+
+            // id parameter = "control1"
+            function toggle(id) {
+
+                // plus = "control1plus"
+                var plus = document.getElementById(id+"plus");
+                // minus = "control1minus"
+                var minus = document.getElementById(id+"minus");
+                // content = "control1"
+                var content = document.getElementById(id);
+
+                // if "control1" is not displayed, display it as a block
+                if (content.style.display == "none") {
+                    content.style.display = "block";
+                // if "control1" is displayed, remove it from the display
+                } else {
+                    content.style.display = "none";
+                }
+
+                // swap whether the plus or minus icon is displayed
+                // default is plus displayed
+                var tmp = plus.style.display;
+                plus.style.display = minus.style.display;
+                minus.style.display = tmp;
+
+            }
+
+            var itemcount = 0;
+            var active = 0;
+
+            // text paramter = whatever was entered in itemtoadd textbox
+            function addTODO(text) {
+
+                console.log("adding list item: "+text);
+                var text = document.createTextNode(text);
+                // create a button with text "Delete" text
+                var btn = document.createElement('button');
+                btn.appendChild(document.createTextNode("Delete"));
+                // increase the list item count and active items
+                itemcount++;
+                active++;
+                // create a bulleted item in the list
+                var li = document.createElement('li');
+                // set the list and delete button id to "item" and "button"
+                // with their respective item number appended to the id
+                li.id = "item"+itemcount;
+                btn.id = "button"+itemcount;
+                // append the textbox text and delete button to the bulleted item
+                li.appendChild(text);
+                li.appendChild(btn);
+
+                // when a "Delete" button is clicked
+                btn.onclick = function() {
+
+                    console.log("removing list item: "+text);
+                    // remove the respective bulleted item from the list
+                    li.parentNode.removeChild(li);
+                    // subtract 1 from the active number of items in the list
+                    // NOTE: does not subtract 1 from the total item count of the list
+                    active--;
+
+                    // if there are less than 3 active items in the to-do list,
+                    // do not hide the "Add to list" button
+                    if (active < 3) {
+                        document.getElementById("addbutton").hidden = false;
+                    }
+
+                };
+
+                // append the bulleted item to the overall list
+                var list = document.getElementById("thelist");
+                list.appendChild(li);
+
+                // if there are 3 active items in the to-do list,
+                // hide the "Add to list" button
+                if (active == 3 ) {
+                    document.getElementById("addbutton").hidden = true;
+                }
+
+            }
+
+        </script>
+
+        <style>
+            /* Will make links blue and underlined */
+            a   { color: blue; text-decoration: underline; }
+        </style>
+
+    </head>
+
+    <body>
+
+        <!-- vars "plus" and "minus" in the script -->
+        [<span id="controls1plus" onclick="toggle('controls1')">+</span><span id="controls1minus" onclick="toggle('controls1')" style="display:none;">-</span>]
+
+            Controls
+
+            <!-- var "content" in the script -->
+            <span id="controls1" style="display:none">
+
+                <form>
+
+                    Item to add:<input type="text" name="item" id="itemtoadd">
+
+                    <input id="addbutton" type="button" value="Add to list"
+                    onclick="addTODO(document.getElementById('itemtoadd').value);"><br/>
+
+                </form>
+
+            </span>
+
+
+        <span id="content">
+
+            <h3>TODOs</h3>
+            <ul id="thelist">
+            </ul>
+
+        </span>
+
+    </body>
+
+</html>
