@@ -2,6 +2,9 @@
 .gradle
 /build/
 
+## IntelliJ IDEA folder ##
+.idea
+
 # Ignore Gradle GUI config
 gradle-app.setting
 
