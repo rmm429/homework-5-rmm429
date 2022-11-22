@@ -14,14 +14,18 @@ import org.junit.jupiter.api.Test;
 
 public class SeleniumTest {
 
-    // PATH RELATIVE TO MY LOCAL MACHINE (Windows)
-    // protected final String uiPath = "file:///I:/My%20Drive/Drexel/Fall%202022%20(202315)/SE%20320/Homeworks/HW5/homework-5-rmm429/web/index.html";
-
-    // PATH RELATIVE TO MY LOCAL MACHINE (Mac)
-    protected final String uiPath = "file:///Users/rickymangerie/Documents/GitHub/rmm429/homework-5-rmm429/web/index.html";
-
     // the max amount of items that can be added to a list
     protected final int MAX_ITEMS = 3;
+
+    // This will ensure that the ui path will be accurate regardless of the project path
+    protected final String projectPath = System.getProperty("user.dir");
+    protected final String uiPath = "file:///" + projectPath + "/web/index.html";
+
+//    // PATH RELATIVE TO MY LOCAL MACHINE (Windows)
+//    protected final String uiPath = "file:///I:/My%20Drive/Drexel/Fall%202022%20(202315)/SE%20320/Homeworks/HW5/homework-5-rmm429/web/index.html";
+//
+//    // PATH RELATIVE TO MY LOCAL MACHINE (Mac)
+//    protected final String uiPath = "file:///Users/rickymangerie/Documents/GitHub/rmm429/homework-5-rmm429/web/index.html";
 
 //    @Test
 //    public void testOneItem() {
