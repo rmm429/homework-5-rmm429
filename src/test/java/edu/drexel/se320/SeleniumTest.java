@@ -31,6 +31,11 @@ public class SeleniumTest {
 //    // PATH RELATIVE TO MY LOCAL MACHINE (Mac)
 //    protected final String uiPath = "file:///Users/rickymangerie/Documents/GitHub/rmm429/homework-5-rmm429/web/index.html";
 
+    // .\\gradlew.bat test --tests SeleniumTest.*METHOD_NAME*
+
+    // throws InterruptedException
+    // Thread.sleep(3000);
+
 //    @Test
 //    public void testOneItem() {
 //        WebDriver driver = new FirefoxDriver();
@@ -65,9 +70,6 @@ public class SeleniumTest {
 //            driver.quit();
 //        }
 //    }
-
-    // throws InterruptedException
-    // Thread.sleep(3000);
 
     /*
      * Test 1a: Test Controls Revealed
