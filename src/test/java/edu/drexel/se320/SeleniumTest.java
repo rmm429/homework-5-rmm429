@@ -36,41 +36,6 @@ public class SeleniumTest {
     // throws InterruptedException
     // Thread.sleep(3000);
 
-//    @Test
-//    public void testOneItem() {
-//        WebDriver driver = new FirefoxDriver();
-//        try {
-//            driver.get(uiPath);
-//            // Find the + to click to display the form to add a to-do
-//            // Looking up by the id, not the name attribute
-//            WebElement elt = driver.findElement(By.id("controls1plus"));
-//
-//            // Click on the [+]
-//            elt.click();
-//
-//            // Find the form field
-//            WebElement input = driver.findElement(By.id("itemtoadd"));
-//
-//            // Make up a to-do
-//            input.sendKeys("Something to do");
-//
-//            // Find and click the "Add to list" button
-//            WebElement addButton = driver.findElement(By.id("addbutton"));
-//            addButton.click();
-//
-//            /* The first element added to the list will have id "item1"
-//             * Subsequent list items will have IDs item2, item3, etc.
-//             * Arguably this is too brittle, but rather than forcing you
-//             * all to become experts on the DOM, you may assume this is done
-//             * correctly, and/or you're testing this functionality implicitly. */
-//            WebElement li = driver.findElement(By.id("item1"));
-//            // We use startsWith because getText includes the text of the Delete button
-//            assertTrue(li.getText().startsWith("Something to do"), "Checking correct text for added element");
-//        } finally {
-//            driver.quit();
-//        }
-//    }
-
     /*
      * Test 1a: Test Controls Revealed
      * This will test that when the [+] icon is clicked,
@@ -183,49 +148,6 @@ public class SeleniumTest {
             driver.quit();
         }
     }
-
-//    @Test
-//    public void testAddedItemInRightPlace() {
-//
-//        WebDriver driver = new FirefoxDriver();
-//
-//        try {
-//
-//            driver.get(uiPath);
-//
-//            // Find the [+] to click to display the form to add a to-do
-//            WebElement elt = driver.findElement(By.id("controls1plus"));
-//            // Click on the [+] icon
-//            elt.click();
-//
-//            // Find the form field and "Add to list" button
-//            WebElement input = driver.findElement(By.id("itemtoadd"));
-//            WebElement addButton = driver.findElement(By.id("addbutton"));
-//
-//            // Make up a list of items that will be added to the to-do list
-//            ArrayList<String> items = new ArrayList(Arrays.asList("First", "Middle", "Last"));
-//
-//            // Add each item to the to-do list
-//            for(String item : items) {
-//                input.sendKeys(item);
-//                addButton.click(); // click the "Add to list" button
-//                input.clear(); // Clear the input box (ensures next item text will not be appended to previous text)
-//            }
-//
-//            // Get each item element from the to-do list element
-//            WebElement todoList = driver.findElement(By.id("thelist"));
-//            List<WebElement> todoItems = todoList.findElements(By.tagName("li"));
-//
-//            // Ensure that the items in the actual to-do list are ordered correctly
-//            // based on the Array List it got the items from
-//            for (int i = 0; i < todoItems.size(); i++) {
-//                assertTrue(todoItems.get(i).getText().startsWith(items.get(i)));
-//            }
-//
-//        } finally {
-//            driver.quit();
-//        }
-//    }
 
     /*
      * Test 3a: Test Removed Items Disappears
